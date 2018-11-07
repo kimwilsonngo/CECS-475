@@ -34,7 +34,7 @@ namespace Client
             while(doGame == true)
             {
                 Console.WriteLine("Modify 1. Teachers or 2. Courses?");
-                choice = Console.Read();
+                choice = Convert.ToInt32(Console.ReadLine());
 
                 if (choice == 1)
                 {
@@ -46,13 +46,16 @@ namespace Client
                     doCourses = true;
                     doTeachers = false;
                 }
-                else
+                else {
                     Console.WriteLine("?????");
+                }
+                    
 
                 while (doTeachers == true)
                 {
                     menu1();
-                    choice = Console.Read();
+                    Console.WriteLine("");
+                    choice = Convert.ToInt32(Console.ReadLine());
                     switch (choice)
                     {
                         case 1:
@@ -106,6 +109,8 @@ namespace Client
                 while (doCourses == true)
                 {
                     menu2();
+                    Console.WriteLine("");
+                    choice = Convert.ToInt32(Console.ReadLine());
                     switch (choice)
                     {
                         case 1:
