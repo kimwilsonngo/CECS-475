@@ -26,110 +26,147 @@ namespace Client
 
             bool doTeachers = false;
             bool doCourses = false;
+            bool doGame = false;
 
-            Console.WriteLine("Modify 1. Teachers or 2. Courses?");
-            choice = Console.Read();
+            
 
-            if (choice == 1)
+            while(doGame == true)
             {
-                doTeachers = true;
-                doCourses = false;
-            }
-            else if (choice == 2)
-            {
-                doCourses = true;
-                doTeachers = false;
-            }
-            else
-                Console.WriteLine("?????");
-
-            while(doTeachers == true)
-            {
+                Console.WriteLine("Modify 1. Teachers or 2. Courses?");
                 choice = Console.Read();
-                switch(choice)
+
+                if (choice == 1)
                 {
-                    case 1:
-                        Console.WriteLine("- CREATE - ");
-                        Console.WriteLine("Enter Teacher Name: ");
-                        teacherName = Console.ReadLine();
-                        Console.WriteLine("Enter Standard ID: ");
-                        standardID = Console.Read();
-                        Console.WriteLine("Enter Teacher ID: ");
-                        teacherID = Console.Read();
-                        createTeacher(teacherName, standardID, teacherID);
-                        break;
-                    case 2:
-                        Console.WriteLine(" - UPDATE - ");
-                        Console.WriteLine("Enter Teacher Name: ");
-                        teacherName = Console.ReadLine();
-                        Console.WriteLine("Enter Standard ID: ");
-                        standardID = Console.Read();
-                        Console.WriteLine("Enter Teacher ID: ");
-                        teacherID = Console.Read();
-                        updateTeacher(teacherName, standardID, teacherID);
-                        break;
-                    case 3:
-                        Console.WriteLine("- DELETE - ");
-                        Console.Write("Enter Teacher ID: ");
-                        teacherID = Console.Read();
-                        deleteTeacher(teacherID);
-                        break;
-                    case 4:
-                        Console.WriteLine("- GET COURSES BY TEACHER ID");
-                        Console.Write("Enter Teacher ID: ");
-                        teacherID = Console.Read();
-                        GetCourseByTeacherID(teacherID);
-                        break;
-                    case 5:
-                        Console.WriteLine("- GET ALL TEACHERS");
-                        GetAllTeachers();
-                        break;
-                    case 6:
-                        Console.WriteLine("- GET ALL STANDARDS -");
-                        //method call
-                        break;
+                    doTeachers = true;
+                    doCourses = false;
                 }
-                    
-            }
-
-            while(doCourses == true)
-            {
-                switch(choice)
+                else if (choice == 2)
                 {
-                    case 1:
-                        Console.WriteLine("- CREATE COURSE -");
-                        Console.WriteLine("Enter Course Name: ");
-                        courseName = Console.ReadLine();
-                        Console.WriteLine("Enter Course ID: ");
-                        courseID = Console.Read();
-                        Console.WriteLine("Enter Teacher ID: ");
-                        teacherID = Console.Read();
-                        createCourse(courseName, courseID, teacherID);
-                        break;
-                    case 2:
-                        Console.WriteLine("- UPDATE COURSE -");
-                        Console.WriteLine("Enter Course Name: ");
-                        courseName = Console.ReadLine();
-                        Console.WriteLine("Enter Course ID: ");
-                        courseID = Console.Read();
-                        Console.WriteLine("Enter Teacher ID: ");
-                        teacherID = Console.Read();
-                        updateCourse(courseName, courseID, teacherID);
-                        break;
-                    case 3:
-                        Console.WriteLine("- DELETE COURSE -");
-                        Console.WriteLine("Enter Course ID");
-                        courseID = Console.Read();
-                        deleteCourse(courseID);
-                        break;
-                    case 4:
-                        Console.WriteLine("- DISPLAY ALL COURSES - ");
-                        getAllCourses();
-                        break;
+                    doCourses = true;
+                    doTeachers = false;
+                }
+                else
+                    Console.WriteLine("?????");
+
+                while (doTeachers == true)
+                {
+                    menu1();
+                    choice = Console.Read();
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine("- CREATE - ");
+                            Console.WriteLine("Enter Teacher Name: ");
+                            teacherName = Console.ReadLine();
+                            Console.WriteLine("Enter Standard ID: ");
+                            standardID = Console.Read();
+                            Console.WriteLine("Enter Teacher ID: ");
+                            teacherID = Console.Read();
+                            createTeacher(teacherName, standardID, teacherID);
+                            break;
+                        case 2:
+                            Console.WriteLine(" - UPDATE - ");
+                            Console.WriteLine("Enter Teacher Name: ");
+                            teacherName = Console.ReadLine();
+                            Console.WriteLine("Enter Standard ID: ");
+                            standardID = Console.Read();
+                            Console.WriteLine("Enter Teacher ID: ");
+                            teacherID = Console.Read();
+                            updateTeacher(teacherName, standardID, teacherID);
+                            break;
+                        case 3:
+                            Console.WriteLine("- DELETE - ");
+                            Console.Write("Enter Teacher ID: ");
+                            teacherID = Console.Read();
+                            deleteTeacher(teacherID);
+                            break;
+                        case 4:
+                            Console.WriteLine("- GET COURSES BY TEACHER ID");
+                            Console.Write("Enter Teacher ID: ");
+                            teacherID = Console.Read();
+                            GetCourseByTeacherID(teacherID);
+                            break;
+                        case 5:
+                            Console.WriteLine("- GET ALL TEACHERS");
+                            GetAllTeachers();
+                            break;
+                        case 6:
+                            Console.WriteLine("- GET ALL STANDARDS -");
+                            //method call
+                            break;
+                        case 7:
+                            doTeachers = false;
+                            doCourses = false;
+                            break;
+                    }
+
+                }
+
+                while (doCourses == true)
+                {
+                    menu2();
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine("- CREATE COURSE -");
+                            Console.WriteLine("Enter Course Name: ");
+                            courseName = Console.ReadLine();
+                            Console.WriteLine("Enter Course ID: ");
+                            courseID = Console.Read();
+                            Console.WriteLine("Enter Teacher ID: ");
+                            teacherID = Console.Read();
+                            createCourse(courseName, courseID, teacherID);
+                            break;
+                        case 2:
+                            Console.WriteLine("- UPDATE COURSE -");
+                            Console.WriteLine("Enter Course Name: ");
+                            courseName = Console.ReadLine();
+                            Console.WriteLine("Enter Course ID: ");
+                            courseID = Console.Read();
+                            Console.WriteLine("Enter Teacher ID: ");
+                            teacherID = Console.Read();
+                            updateCourse(courseName, courseID, teacherID);
+                            break;
+                        case 3:
+                            Console.WriteLine("- DELETE COURSE -"); 
+                            Console.WriteLine("Enter Course ID");
+                            courseID = Console.Read();
+                            deleteCourse(courseID);
+                            break;
+                        case 4:
+                            Console.WriteLine("- DISPLAY ALL COURSES - ");
+                            getAllCourses();
+                            break;
+                        case 5:
+                            doTeachers = false;
+                            doCourses = false;
+                            break;
+                    }
                 }
             }
+           
 
 
+        }
+
+        private static void menu1()
+        {
+            Console.Write("1. CREATE " +
+                        "\n2. UPDATE " +
+                        "\n3. DELETE " +
+                        "\n4. LIST COURSES BY TEACHER ID " +
+                        "\n5. ALL TEACHERS " +
+                        "\n6. ALL STANDARDS " +
+                        "\n7. MAIN MENU");
+        }
+
+        private static void menu2()
+        {
+            Console.Write("1. CREATE " +
+                        "\n2. UPDATE " +
+                        "\n3. DELETE " +
+                        "\n4. ALL COURSES " +
+                        "\n5. MAIN MENU");
         }
         
                
