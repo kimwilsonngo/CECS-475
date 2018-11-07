@@ -198,10 +198,12 @@ namespace Client
                 return;
             }
 
-            Teacher teacher = new Teacher();
-            teacher.TeacherName = tName;
-            teacher.StandardId = sID;
-            teacher.TeacherId = tID;
+            Teacher teacher = new Teacher
+            {
+                TeacherName = tName,
+                StandardId = sID,
+                TeacherId = tID
+            };
             bl.AddTeacher(teacher); //this?
 
         }
@@ -209,7 +211,7 @@ namespace Client
          * Method to update the teacher 
          * @param teacher name, teacher ID
          */
-        private static void updateTeacher(string tName, int cID)
+        private static void updateTeacher(string tName, int tID)
         {
             Console.Write("Update \n");
             if (bl == null)
@@ -217,7 +219,7 @@ namespace Client
                 Console.WriteLine("Standard not found!");
                 return;
             }
-            Teacher teacher = bl.GetTeacherByID(cID);
+            Teacher teacher = bl.GetTeacherByID(tID);
             teacher.TeacherName = tName;
             //check function so it knows which one to update
             bl.UpdateTeacher(teacher);
@@ -314,7 +316,7 @@ namespace Client
         private static void updateCourse(string cName, int cID, int tID)
         {
             Console.Write("Update Course \n");
-            Course course = bl.GetCourseByID(111);
+            Course course = bl.GetCourseByID(cID);
             if (bl == null)
             {
                 Console.WriteLine("Standard not found!");
