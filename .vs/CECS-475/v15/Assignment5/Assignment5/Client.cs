@@ -9,6 +9,7 @@ namespace Client
 {
     class Program
     {
+        
         static BusinessLayer.BusinessLayer bl = new BusinessLayer.BusinessLayer();
         static int choice;
         public static void Main(string[] args)
@@ -26,7 +27,7 @@ namespace Client
 
             bool doTeachers = false;
             bool doCourses = false;
-            bool doGame = false;
+            bool doGame = true;
 
             
 
